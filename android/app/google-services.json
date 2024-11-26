@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "261555270326",
+    "project_id": "loginauth-44050",
+    "storage_bucket": "loginauth-44050.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261555270326:android:55bc2c9e3727b2cdaaec17",
+        "android_client_info": {
+          "package_name": "com.example.loginauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261555270326-71q6osifllgubbprtpu0hhnj4rdh9rnb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRNRuCSnHsOlrYnuy8j4J13DP3tlPCdpg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261555270326-71q6osifllgubbprtpu0hhnj4rdh9rnb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
