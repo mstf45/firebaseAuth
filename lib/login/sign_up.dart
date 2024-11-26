@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:loginauth/commnents/custom_keys.dart';
 import 'package:loginauth/login/sign_in.dart';
 import 'package:loginauth/service/auth_services.dart';
 
@@ -27,7 +28,7 @@ class _SignUpState extends State<SignUp> {
                 controller: userController,
                 keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
-                  label: Text('Kullanıcı Adı'),
+                  label: Text(CustomKeys.userName),
                   prefixIcon: Icon(Icons.person),
                 ),
               ),
@@ -36,7 +37,7 @@ class _SignUpState extends State<SignUp> {
                 controller: emailController,
                 keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
-                  label: Text('E-mail'),
+                  label: Text(CustomKeys.email),
                   prefixIcon: Icon(Icons.email),
                 ),
               ),
@@ -45,7 +46,7 @@ class _SignUpState extends State<SignUp> {
                 controller: passwordController,
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
-                  label: Text('Password'),
+                  label: Text(CustomKeys.password),
                   prefixIcon: Icon(Icons.lock),
                 ),
               ),
@@ -56,7 +57,7 @@ class _SignUpState extends State<SignUp> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: const Text('Hesabım Var'),
+                    child: const Text(CustomKeys.myAccunt),
                   ),
                   const Spacer(),
                   OutlinedButton(
@@ -66,17 +67,21 @@ class _SignUpState extends State<SignUp> {
                         emailController.text,
                         passwordController.text,
                       );
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute(
-                          builder: (context) => const SignIn(),
-                        ),
-                      );
+                      userController.text.isNotEmpty &&
+                              emailController.text.isNotEmpty &&
+                              passwordController.text.isNotEmpty
+                          ? Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                builder: (context) => const SignIn(),
+                              ),
+                            )
+                          : null;
                       userController.clear();
                       emailController.clear();
                       passwordController.clear();
                     },
-                    child: const Text('Kayıt Ol'),
+                    child: const Text(CustomKeys.buttonNameUp),
                   ),
                 ],
               ),

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:loginauth/commnents/custom_keys.dart';
 import 'package:loginauth/home.dart';
 
 class AuthServices {
@@ -10,7 +11,6 @@ class AuthServices {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   ///Kullanıcı Kayıt
-
   Future<void> signUp(String userName, String email, String password) async {
     try {
       UserCredential userCredential =
@@ -24,13 +24,13 @@ class AuthServices {
         'userName': userName,
       });
       await Fluttertoast.showToast(
-        msg: 'Kayıt Başarılı',
+        msg: CustomKeys.succesSignUp,
         backgroundColor: Colors.green,
         textColor: Colors.white,
       );
     } catch (e) {
       Fluttertoast.showToast(
-        msg: 'Kayıt Başarısız $e',
+        msg: CustomKeys.errorSignUp,
         backgroundColor: Colors.redAccent,
         textColor: Colors.white,
       );
@@ -50,17 +50,23 @@ class AuthServices {
         Navigator.pushAndRemoveUntil(
           context,
           CupertinoPageRoute(
-            builder: (context) => const HomePage(),
+            builder: (context) => const HomePage(), 
           ),
           (route) => false,
         );
       }
       await Fluttertoast.showToast(
-        msg: 'Giriş Başarılı',
+        msg: CustomKeys.succesLogin,
         backgroundColor: Colors.green,
         textColor: Colors.white,
       );
-    } catch (e) {}
+    } catch (e) {
+      await Fluttertoast.showToast(
+        msg: CustomKeys.errorLogin,
+        backgroundColor: Colors.redAccent,
+        textColor: Colors.white,
+      );
+    }
   }
 
   ///Kullanıcı Çıkış İşlemleri
@@ -68,7 +74,7 @@ class AuthServices {
   Future<void> signOut() async {
     await _auth.signOut();
     await Fluttertoast.showToast(
-      msg: 'Çıkış Başarılı',
+      msg: CustomKeys.succesLogOut,
       backgroundColor: Colors.green,
       textColor: Colors.white,
     );

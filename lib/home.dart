@@ -17,11 +17,11 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () async {
-             await authServices.signOut();
+              await authServices.signOut();
               await Navigator.pushAndRemoveUntil(
                 context,
                 CupertinoPageRoute(
-                  builder: (context) => SignIn(),
+                  builder: (context) => const SignIn(),
                 ),
                 (route) => false,
               );
@@ -31,7 +31,11 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Text('Giriş Yapan Kullanıcı Email: ${auth.currentUser!.email}'),
+        child: Text(
+          textAlign: TextAlign.center,
+          'Giriş Yapan Kullanıcı Email:\n${auth.currentUser!.email}',
+          style: TextStyle(),
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:loginauth/commnents/custom_keys.dart';
 import 'package:loginauth/login/sign_up.dart';
 import 'package:loginauth/service/auth_services.dart';
 
@@ -25,8 +26,8 @@ class _SignInState extends State<SignIn> {
               TextFormField(
                 controller: emailController,
                 keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(
-                  label: Text('E-mail'),
+                decoration:  const InputDecoration(
+                  label: Text(CustomKeys.email),
                   prefixIcon: Icon(Icons.email),
                 ),
               ),
@@ -35,7 +36,7 @@ class _SignInState extends State<SignIn> {
                 controller: passwordController,
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
-                  label: Text('Password'),
+                  label: Text(CustomKeys.password),
                   prefixIcon: Icon(Icons.lock),
                 ),
               ),
@@ -47,11 +48,11 @@ class _SignInState extends State<SignIn> {
                       Navigator.push(
                         context,
                         CupertinoPageRoute(
-                          builder: (context) => SignUp(),
+                          builder: (context) => const SignUp(),
                         ),
                       );
                     },
-                    child: const Text('Kayıt Ol'),
+                    child: const Text(CustomKeys.buttonNameUp),
                   ),
                   const Spacer(),
                   OutlinedButton(
@@ -62,7 +63,7 @@ class _SignInState extends State<SignIn> {
                         context,
                       );
                     },
-                    child: const Text('Giriş Yap'),
+                    child: const Text(CustomKeys.buttonNameIn),
                   ),
                 ],
               ),
